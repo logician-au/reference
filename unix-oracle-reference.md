@@ -2,8 +2,6 @@
 
 A collection of practical UNIX/Linux and Oracle tips, gathered from field notes and consolidated for quick reference.
 
-*Sourced from posts originally published on [georgebrunyee.wordpress.com](https://georgebrunyee.wordpress.com/) and [oceantech.wordpress.com](https://oceantech.wordpress.com/).*
-
 ---
 
 ## Table of Contents
