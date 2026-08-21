@@ -54,6 +54,10 @@ Once enabled, you can use:
 | `Esc /^mySearchText` | Search for a command that **starts with** `mySearchText` |
 | `Esc /mySearchText$` | Search for a command that **ends with** `mySearchText` |
 
+### Filename completion in vi-mode
+
+You can avoid typing out long filenames: type the first few letters of the filename until it's unique, then press `Esc` followed by `\` (backslash) to complete it.
+
 ### Set the erase key
 
 ```sh
