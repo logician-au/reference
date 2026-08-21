@@ -8,6 +8,7 @@ A collection of practical UNIX/Linux and Oracle tips, gathered from field notes 
 
 - [Top Tips for UNIX Production Administration](#top-tips-for-unix-production-administration)
 - [Shell & Command Line](#shell--command-line)
+- [Cool Stuff in vi](#cool-stuff-in-vi)
 - [System Info & File Handling](#system-info--file-handling)
 - [Networking](#networking)
 - [Git](#git)
@@ -76,6 +77,31 @@ MY_COUNT=`expr $MY_COUNT + 1`
 ```sh
 define _editor=vi
 ```
+
+---
+
+## Cool Stuff in vi
+
+### Replace all instances of a string
+
+```
+g/orig_string/s//new_string/g
+```
+
+### Set up a macro
+
+Map a key combination to a sequence of keystrokes. For example, to map `Ctrl-L` (lowercase L):
+
+```
+:map <ctrl-v><ctrl-l> <your keystrokes here>
+```
+
+Notes on entering the mapping:
+- Press `Ctrl-V` before `Ctrl-L` so vi captures the literal key combination rather than acting on it.
+- Within your keystrokes, precede **Enter** with `Ctrl-V` (`<ctrl-v><enter>`) and precede **Escape** with `Ctrl-V` (`<ctrl-v><esc>`), so they're recorded as literal characters in the macro rather than being executed.
+- Press Enter to complete the `:map` command.
+
+Once defined, press `Ctrl-L` to invoke the macro.
 
 ---
 
