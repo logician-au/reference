@@ -84,6 +84,12 @@ define _editor=vi
 ### Check the Linux/UNIX version
 
 ```sh
+uname -a
+```
+
+Alternatively:
+
+```sh
 cat /etc/system-release
 ```
 
