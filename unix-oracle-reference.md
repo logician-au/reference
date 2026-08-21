@@ -2,10 +2,13 @@
 
 A collection of practical UNIX/Linux and Oracle tips, gathered from field notes and consolidated for quick reference.
 
+*Sourced from posts originally published on [georgebrunyee.wordpress.com](https://georgebrunyee.wordpress.com/) and [oceantech.wordpress.com](https://oceantech.wordpress.com/).*
+
 ---
 
 ## Table of Contents
 
+- [Top Tips for UNIX Production Administration](#top-tips-for-unix-production-administration)
 - [Shell & Command Line](#shell--command-line)
 - [System Info & File Handling](#system-info--file-handling)
 - [Networking](#networking)
@@ -13,6 +16,23 @@ A collection of practical UNIX/Linux and Oracle tips, gathered from field notes 
 - [Scheduling (cron)](#scheduling-cron)
 - [Web / Content Management](#web--content-management)
 - [Oracle & SQL Reference](#oracle--sql-reference)
+- [Sybase (isql)](#sybase-isql)
+
+---
+
+## Top Tips for UNIX Production Administration
+
+- **Always use `rm -i`, never plain `rm`.** You'll be prompted to confirm each file being deleted — a small friction that's far better than deleting more than intended.
+- **When pasting in PuTTY (right-click), keep a partial screen Notepad session open and paste there first**, so you can confirm the contents of your clipboard match what you expect. There's nothing worse than accidentally pasting hundreds of lines of commands straight into production.
+- **When releasing files to production, always use SFTP — never copy and paste.** Accidental carriage returns can silently and significantly change the behaviour of a script.
+- **Always keep a log of everything you do in PuTTY.** To set this up:
+  1. In the PuTTY opening dialogue, single-click your saved session and press **Load**.
+  2. In the left panel, go to **Session** → **Logging**.
+  3. Select the **"All session output"** radio button.
+  4. In the **Log file name** field, enter the full path with host and date parameters, e.g. `C:\putty_logs\&Y-&M-&D-&T_&H.log`.
+  5. Select **"Always append to the end of it"**.
+  6. The remaining defaults should be fine.
+  7. Go back to **Session** and click **Save** to persist these settings against the saved session.
 
 ---
 
@@ -325,4 +345,37 @@ WHERE  log_date > sysdate - 5;
 
 ---
 
-*Compiled from personal field notes accumulated over several years of UNIX/Linux systems administration and Oracle database work.*
+## Sybase (isql)
+
+### Log in to Sybase isql from UNIX
+
+```sh
+isql -Umy_user_name
+```
+
+### Choose a database
+
+```sql
+1> use my_database_name
+2> go
+```
+
+### Run a SQL statement
+
+Note: no semi-colon at the end of the statement.
+
+```sql
+1> select * from my_table
+2> go
+```
+
+### List all available databases
+
+```sql
+1> sp_helpdb
+2> go
+```
+
+---
+
+*Compiled from personal field notes accumulated over several years of UNIX/Linux systems administration and Oracle/Sybase database work.*
