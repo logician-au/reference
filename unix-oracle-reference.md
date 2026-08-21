@@ -131,6 +131,12 @@ du -h      # detailed disk usage
 df -h      # free disk space
 ```
 
+### Find large files
+
+```sh
+find . -size +5000
+```
+
 ### Display file contents in hex or octal
 
 ```sh
